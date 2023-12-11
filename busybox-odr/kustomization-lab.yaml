@@ -1,0 +1,12 @@
+---
+resources:
+- ../busybox
+
+patches:
+- target:
+    kind: PersistentVolumeClaim
+    name: busybox-pvc
+  patch: |-
+    - op: replace
+      path: /spec/storageClassName
+      value: ocs-storagecluster-ceph-rbd
